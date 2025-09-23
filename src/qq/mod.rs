@@ -12,6 +12,7 @@ mod signature;
 mod model;
 mod group;
 mod send;
+mod ai;
 
 pub async fn init() {
     token::init().await;

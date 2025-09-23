@@ -1,9 +1,11 @@
 mod qq;
+mod ai;
 
 use serde::{Deserialize, Serialize};
 use std::fs;
 use std::sync::Arc;
 use tokio::sync::{Mutex, OnceCell};
+use crate::config::ai::AI;
 use crate::config::qq::QQ;
 
 #[derive(Debug, Deserialize, Clone, Serialize)]
@@ -11,7 +13,8 @@ pub struct Config {
     pub address: String,
     pub port: u16,
     pub log_level: String,
-    pub qq: QQ
+    pub qq: QQ,
+    pub ai: AI
 }
 
 pub static CONFIG: OnceCell<Arc<Mutex<Config>>> = OnceCell::const_new();

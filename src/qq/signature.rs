@@ -4,10 +4,6 @@ use serde_json::{json, Value};
 use crate::config::get_config_clone;
 use crate::qq::model::Payload;
 
-pub async fn verify(secret: &str, msg: &str, sig: Vec<u8>) -> bool{
-    false
-}
-
 pub fn signature(secret: &str, msg: &str) -> String {
     // 创建种子数据
     let mut seed = secret.to_string();

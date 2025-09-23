@@ -28,6 +28,11 @@ where
     s.parse::<u16>().map_err(de::Error::custom)
 }
 
+pub async fn get_access_token_clone() -> String {
+    let token = TOKEN.lock().await;
+    token.as_ref().unwrap().access_token.clone()
+}
+
 pub async fn get_app_access_token() -> Token {
     let config = get_config_clone().await;
     let client = reqwest::Client::new();
@@ -35,7 +40,6 @@ pub async fn get_app_access_token() -> Token {
         "appId": config.qq.app_id.to_string(),
         "clientSecret": config.qq.client_secret
     });
-    println!("{:?}", json);
     let res = client.post("https://bots.qq.com/app/getAppAccessToken")
         .json(&json)
     .send().await.unwrap().text().await.unwrap();

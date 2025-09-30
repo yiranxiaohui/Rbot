@@ -13,5 +13,6 @@ api_key = "xxx"
 model = "qwen-plus"
 
 [proxy]
+enabled = false
 address = "xxx"
 port = 1080

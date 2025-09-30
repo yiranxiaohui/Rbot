@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 定义变量
-Rbot_path="./Rbot"
+Rbot_path="./bin/Rbot"
 log_file="Rbot.log"
 
 # 检查 Rbot 是否已经在运行

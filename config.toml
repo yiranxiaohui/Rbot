@@ -1,0 +1,17 @@
+address = "0.0.0.0"
+port = 3000
+log_level = "debug"
+
+[qq]
+app_id = 123
+client_secret = "xxx"
+interval = 1000
+
+[ai]
+base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+api_key = "xxx"
+model = "qwen-plus"
+
+[proxy]
+address = "xxx"
+port = 1080

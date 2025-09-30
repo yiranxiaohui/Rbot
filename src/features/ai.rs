@@ -21,7 +21,7 @@ pub struct Message {
 
 pub async fn get_ai_response(question: String) -> String {
     let config = get_config_clone().await;
-    let ai = config.ai;
+    let ai = config.features.ai;
     let base_url = ai.base_url;
     let api_key = ai.api_key;
     let model = ai.model;

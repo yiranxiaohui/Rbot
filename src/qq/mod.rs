@@ -5,14 +5,14 @@ use log::{error, info};
 use serde_json::{json, Value};
 use crate::qq::group::handle_group_message;
 use crate::qq::model::Payload;
-use crate::qq::signature::{handle_signature};
+use crate::qq::signature::handle_signature;
 
 mod token;
 mod signature;
 mod model;
 mod group;
 mod send;
-mod ai;
+mod file;
 
 pub async fn init() {
     token::init().await;

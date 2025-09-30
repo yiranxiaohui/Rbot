@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use crate::qq::file::File;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Payload {
@@ -32,5 +33,6 @@ pub struct Message {
     pub msg_type: i16,
     pub event_id: Option<String>,
     pub msg_id: Option<String>,
+    pub media: Option<File>,
     pub msg_seq: Option<i16>
 }

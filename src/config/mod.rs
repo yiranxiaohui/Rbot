@@ -1,12 +1,12 @@
 mod qq;
-mod ai;
 mod proxy;
+mod features;
 
 use serde::{Deserialize, Serialize};
 use std::fs;
 use std::sync::Arc;
 use tokio::sync::{Mutex, OnceCell};
-use crate::config::ai::AI;
+use crate::config::features::Features;
 use crate::config::proxy::Proxy;
 use crate::config::qq::QQ;
 
@@ -16,7 +16,7 @@ pub struct Config {
     pub port: u16,
     pub log_level: String,
     pub qq: QQ,
-    pub ai: AI,
+    pub features: Features,
     pub proxy: Proxy
 }
 

@@ -3,6 +3,25 @@
 version = 4
 
 [[package]]
+name = "Rbot"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "chrono",
+ "ed25519-dalek",
+ "env_logger",
+ "hex",
+ "log",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "sha2",
+ "tokio",
+ "tokio-cron-scheduler",
+ "toml",
+]
+
+[[package]]
 name = "addr2line"
 version = "0.24.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1286,25 +1305,6 @@ name = "rand_core"
 version = "0.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "99d9a13982dcf210057a8a78572b2217b667c3beacbf3a0d8b454f6f82837d38"
-
-[[package]]
-name = "rbot"
-version = "0.1.0"
-dependencies = [
- "axum",
- "chrono",
- "ed25519-dalek",
- "env_logger",
- "hex",
- "log",
- "reqwest",
- "serde",
- "serde_json",
- "sha2",
- "tokio",
- "tokio-cron-scheduler",
- "toml",
-]
 
 [[package]]
 name = "redox_syscall"

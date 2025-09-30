@@ -1,8 +1,8 @@
 use log::{debug, error};
-use reqwest::{Client};
 use serde::Deserialize;
 use serde_json::json;
 use crate::config::get_config_clone;
+use crate::utils::request::get_client;
 
 #[derive(Debug, Deserialize)]
 pub struct ChatResponse {
@@ -25,9 +25,7 @@ pub async fn get_ai_response(question: String) -> String {
     let base_url = ai.base_url;
     let api_key = ai.api_key;
     let model = ai.model;
-    let client = Client::new();
-    let prompt = format!("<|fim_prefix|>{question}<|fim_suffix|>");
-    let res = client.post(format!("{base_url}/chat/completions"))
+    let res = get_client().await.post(format!("{base_url}/chat/completions"))
         .header("Authorization", format!("Bearer {api_key}"))
         .json(&json!({
             "model": model,

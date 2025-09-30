@@ -7,6 +7,7 @@ use serde_json::json;
 use tokio::sync::{Mutex};
 use tokio_cron_scheduler::{Job, JobScheduler};
 use crate::config::{get_config_clone};
+use crate::utils::request::{get_client};
 
 #[derive(Deserialize, Serialize)]
 #[derive(Debug)]
@@ -35,12 +36,11 @@ pub async fn get_access_token_clone() -> String {
 
 pub async fn get_app_access_token() -> Token {
     let config = get_config_clone().await;
-    let client = reqwest::Client::new();
     let json = json!({
         "appId": config.qq.app_id.to_string(),
         "clientSecret": config.qq.client_secret
     });
-    let res = client.post("https://bots.qq.com/app/getAppAccessToken")
+    let res = get_client().await.post("https://bots.qq.com/app/getAppAccessToken")
         .json(&json)
     .send().await.unwrap().text().await.unwrap();
     debug!("{:?}", res);

@@ -19,7 +19,7 @@ pub async fn init() {
 }
 
 pub async fn webhook(request: Request<Body>) -> Json<Value> {
-    let payload = get_payload(request).await.map_err(|e| {
+    let payload = get_payload(request).await.map_err(|_| {
         return Json(json!({}));
     }).unwrap();
     let op = payload.op.unwrap();

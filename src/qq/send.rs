@@ -1,13 +1,12 @@
 use log::{debug, error};
-use reqwest::{Client};
 use crate::qq::model::Message;
 use crate::qq::token::{get_access_token_clone};
+use crate::utils::request::get_client;
 
 pub async fn send_group_message(message: Message, group_openid: String) {
-    let client = Client::new();
     let url = format!("https://api.sgroup.qq.com/v2/groups/{group_openid}/messages");
     let access_token = get_access_token_clone().await;
-    let res = client.post(url)
+    let res = get_client().await.post(url)
         .header("Authorization", format!("QQBot {access_token}"))
         .json(&message)
         .send().await;

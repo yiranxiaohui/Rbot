@@ -1,8 +1,11 @@
 #!/bin/bash
 
+
 # 定义变量
 Rbot_path="./bin/Rbot"
 log_file="Rbot.log"
+
+chmod +777 $Rbot_path
 
 # 检查 Rbot 是否已经在运行
 if pgrep -f "$Rbot_path" > /dev/null; then

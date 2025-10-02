@@ -1,11 +1,9 @@
-use std::error::Error;
 use chrono::Local;
 use log::error;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use crate::config::get_config_clone;
 use crate::utils::download::{download_image, ImageType};
-use crate::utils::request::get_client;
 
 #[derive(Deserialize, Serialize, Debug)]
 struct ResponseBody<T> {
@@ -44,7 +42,7 @@ pub async fn get_news_response() -> Result<String, String>{
                     return Err("".to_string());
                 }
             }
-            Ok(text.data.cover)
+            // Ok(text.data.cover)
         }
         Err(_) => {
             Err("Failed to get news response".to_string())
